@@ -1,11 +1,8 @@
 .notifications__label{
-  color: #EDEEEE;
+  color: $darkGrey;
   margin-bottom: 20px;
   @media ($tablet) {
     margin-bottom: 40px;
-  }
-  @media ($desktop) {
-     color: $darkGrey;
   }
 }
 .note{

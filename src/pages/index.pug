@@ -4,7 +4,6 @@ html
       //
     include mixin
     link(href='https://fonts.googleapis.com/css?family=Roboto&display=swap' rel='stylesheet')
-    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css')
     head
     meta(charset='utf-8')
     meta(name='viewport', content="initial-scale=1.0, width=device-width")
@@ -46,27 +45,29 @@ html
         section.section_main.main
             .section__container
                 div.main__item.aside
-                    +tab(1, 'Уведомления', [
-                        {link: 'https://wellyes.ru', name: 'Документы'},
-                        {link: 'https://wellyes.ru', name: 'План' },
-                        {link: 'https://wellyes.ru', name: 'Оплата'},
-                        {link: 'https://wellyes.ru', name: 'Инструкция'}
-                        ], 'tab-menu')
+                    .tab(class='tab-menu')
+                        input(id='menu')(type='checkbox')
+                        label.tab-label(for='menu') Уведомлния
+                            svg(class='tab-label__icon' width='8', height='5', fill='none', xmlns='http://www.w3.org/2000/svg')
+                                path(d='M4 5L7.464.5H.536L4 5z', fill='#000', fill-opacity='.2')
+                        .tab-content
+                            .tab-content__text
+                                +linkList([
+                                    {link: 'https://wellyes.ru', name: 'Документы'},
+                                    {link: 'https://wellyes.ru', name: 'План'},
+                                    {link: 'https://wellyes.ru', name: 'Оплата'},
+                                    {link: 'https://wellyes.ru', name: 'Инструкция'}
+                                ])
+
                     div.products
-                        div.product
-                            h4.product__label Апартаменты 1
-                            p.product__description г. Сочи, ул. Виноградная 20
-                            a(class='product__link', target='__blank' href='https://wellyes.ru') Перейти
-                                svg(class='product__icon' width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg')
-                                    path(d='M10 0a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 19.333A9.334 9.334 0 1 1 10 .665a9.334 9.334 0 0 1 0 18.668z' fill='#FFC000')
-                                    path(d='M8.696 5.376l-.003-.003c-.134-.112-.32-.116-.44.003-.111.113-.141.322.002.444l4.17 4.19-4.17 4.17a.29.29 0 0 0-.003.442c.054.075.15.095.213.095a.33.33 0 0 0 .231-.093L13.1 10.22a.322.322 0 0 0 0-.442L8.696 5.376z' fill='#FFC000' stroke='#FFC000' stroke-width='.1')
-                        div.product
-                            h4.product__label Апартаменты 2
-                            p.product__description г. Сочи, ул. Виноградная 20
-                            a(class='product__link', target='__blank' href='https://wellyes.ru') Перейти
-                                svg(class='product__icon' width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg')
-                                    path(d='M10 0a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 19.333A9.334 9.334 0 1 1 10 .665a9.334 9.334 0 0 1 0 18.668z' fill='#FFC000')
-                                    path(d='M8.696 5.376l-.003-.003c-.134-.112-.32-.116-.44.003-.111.113-.141.322.002.444l4.17 4.19-4.17 4.17a.29.29 0 0 0-.003.442c.054.075.15.095.213.095a.33.33 0 0 0 .231-.093L13.1 10.22a.322.322 0 0 0 0-.442L8.696 5.376z' fill='#FFC000' stroke='#FFC000' stroke-width='.1')
+                        each product in products
+                            .product
+                                h4.product__label #{product.label}
+                                p.product__description #{product.adress}
+                                a(class='product__link', target='__blank' href='https://wellyes.ru') Перейти
+                                    svg(class='product__icon' width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg')
+                                        path(d='M10 0a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 19.333A9.334 9.334 0 1 1 10 .665a9.334 9.334 0 0 1 0 18.668z' fill='#FFC000')
+                                        path(d='M8.696 5.376l-.003-.003c-.134-.112-.32-.116-.44.003-.111.113-.141.322.002.444l4.17 4.19-4.17 4.17a.29.29 0 0 0-.003.442c.054.075.15.095.213.095a.33.33 0 0 0 .231-.093L13.1 10.22a.322.322 0 0 0 0-.442L8.696 5.376z' fill='#FFC000' stroke='#FFC000' stroke-width='.1')
 
                 div.main__item.notifications
                     h2.notifications__label Уведомления
@@ -80,7 +81,6 @@ html
                                         path(d='M20 10C20 7.34784 18.9464 4.8043 17.0711 2.92893C15.1957 1.05357 12.6522 0 10 0C7.34783 0 4.8043 1.05357 2.92893 2.92893C1.05357 4.8043 0 7.34784 0 10C0 12.6522 1.05357 15.1957 2.92893 17.0711C4.8043 18.9464 7.34783 20 10 20C12.6522 20 15.1957 18.9464 17.0711 17.0711C18.9464 15.1957 20 12.6522 20 10V10ZM0.666666 10C0.666666 8.77433 0.908081 7.56066 1.37712 6.42829C1.84617 5.29592 2.53366 4.26702 3.40034 3.40034C4.26702 2.53366 5.29591 1.84617 6.42829 1.37712C7.56066 0.90808 8.77433 0.666667 10 0.666667C11.2257 0.666667 12.4393 0.90808 13.5717 1.37712C14.7041 1.84617 15.733 2.53366 16.5997 3.40034C17.4663 4.26702 18.1538 5.29592 18.6229 6.42829C19.0919 7.56066 19.3333 8.77433 19.3333 10C19.3333 12.4754 18.35 14.8493 16.5997 16.5997C14.8493 18.35 12.4754 19.3333 10 19.3333C7.52465 19.3333 5.15068 18.35 3.40034 16.5997C1.65 14.8493 0.666666 12.4754 0.666666 10Z', fill='black', fill-opacity='0.2')
                                         path(d='M10.1859 13.0636L14.5884 8.66105C14.6862 8.54365 14.6862 8.38712 14.5884 8.28928C14.4906 8.19145 14.3145 8.17188 14.2166 8.28928L9.99022 12.4961L5.78337 8.28928C5.68553 8.17188 5.50943 8.17188 5.4116 8.28928C5.3529 8.32842 5.33333 8.40668 5.33333 8.46538C5.33333 8.52408 5.3529 8.60235 5.4116 8.66105L9.81411 13.0636C9.91195 13.1614 10.088 13.1614 10.1859 13.0636Z', fill='black', fill-opacity='0.2')
                                         path(d='M14.6238 8.69641L14.6239 8.69655L14.6268 8.69306C14.7385 8.55901 14.7427 8.37287 14.6238 8.25393C14.5115 8.14165 14.3016 8.11162 14.1798 8.25541L9.9903 12.4255L5.82026 8.25546C5.70364 8.11767 5.4959 8.1165 5.37774 8.25194C5.30328 8.30588 5.28333 8.40213 5.28333 8.46538C5.28333 8.53355 5.30579 8.62595 5.37624 8.69641L9.77876 13.0989C9.89612 13.2163 10.1039 13.2163 10.2212 13.0989L14.6238 8.69641Z', stroke='black', stroke-opacity='0.2', stroke-width='0.1')
-
                                 .tab-content
                                     .tab-content__text #{note.text}
 

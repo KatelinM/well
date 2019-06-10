@@ -79,20 +79,37 @@ input {
   }
   &.tab-menu{
     border-top: none;
-    padding-top: 9px;
+    padding-top: 24px;
     @media ($desktop) {
       display: flex;
       flex-direction: column
+    }
+    input:checked {
+      + .tab-label {
+        border: 1px solid rgb(255, 192, 0);
+        & .tab-label__icon path{
+          fill-opacity: 1;
+          fill: $yellow;
+        }
+      }
     }
     .tab-label{
       border: 1px solid rgba(0,0,0,.2);
       border-radius: 20px;
       color: $darkGrey;
       position: relative;
-      &:after{
-        @media ($desktop) {
-          display: none;
+      display: flex;
+      align-items: center;
+      &:hover {
+        border: 1px solid rgb(255, 192, 0);
+        & .tab-label__icon path{
+          fill-opacity: 1;
+          fill: $yellow;
         }
+      }
+
+      &:after{
+          display: none;
       }
       &:before{
         content: '5';
@@ -101,7 +118,7 @@ input {
         font-size: .8125rem;
         line-height: .9375rem;
         position: absolute;
-        top: -10px;
+        top: -24px;
         right: 0px;
         display: flex;
         justify-content: center;
