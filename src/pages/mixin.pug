@@ -7,14 +7,11 @@ mixin link(link)
 mixin linkList(links)
     for link in links
         +link({link: link.link, name: link.name})
-
+//миксин tab для футера
 mixin tab(i, label, content, classTab)
     .tab(class=classTab)
         input(id='chck'+i)(type='checkbox')
         label.tab-label(for='chck'+i) #{label}
         .tab-content
             +linkList(content)
-mixin tabList(tabsArray)
-    .tabs
-    each tab, index  in tabsArray
-        +tab(index, tab.label, tab.content, 'listClassName')
+

@@ -52,7 +52,32 @@ input {
     transition: all .35s;
 
   }
-  &.tab_menu{
+  &.tab-note{
+      border-top: none;
+    &:hover .tab-label__icon{
+      fill: $yellow;
+      stroke: $yellow;
+    }
+    .tab-label__icon {
+      transition: all 0.6s;
+    }
+    .tab-label:after{
+      display: none;
+    }
+    input:checked {
+      + .tab-label {
+        //background: darken($bgColor, 10%);
+        .tab-label__icon {
+          transform: rotate(180deg);
+          fill: white;
+          stroke: white;
+          background-color: $yellow;
+          border-radius: 100%;
+        }
+      }
+    }
+  }
+  &.tab-menu{
     border-top: none;
     padding-top: 9px;
     @media ($desktop) {
