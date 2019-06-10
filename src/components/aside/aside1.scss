@@ -1,0 +1,81 @@
+.main__item{
+  & + &{
+    @media ($desktop) {
+      border-left: 1px solid $lightGrey;
+    }
+  }
+  &:first-child{
+    @media ($desktop) {
+      padding-right: 50px;
+    }
+  }
+  &:last-child{
+    @media ($desktop) {
+      padding-left: 42px;
+      padding-top: 10px;
+    }
+  }
+}
+
+.aside{
+  .products{
+    display:flex;
+    flex-wrap: wrap;
+    @media ($tablet) {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+    @media ($desktop) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .product{
+      display:flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      flex-basis: 100%;
+      @media ($tablet) {
+        flex-basis: 50%;
+        padding: 0 15px;
+        & + .product{
+          border-left:  1px solid $lightGrey;
+        }
+      }
+      @media ($desktop) {
+        flex-basis: 100%;
+        padding: 0;
+        & + .product{
+          border-left:  none;
+        }
+      }
+      .product__label{
+        flex-basis:100%;
+        color: $yellow;
+        padding: 10px 0;
+      }
+      .product__description{
+
+      }
+      .product__link{
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        color: $yellow;
+        &:hover{
+          color: $yellowHover;
+        }
+        &:hover path{
+          fill: $yellowHover;
+        }
+      }
+      .product__icon{
+        margin-left: 15px;
+      }
+      & + .product{
+        margin-top: 30px;
+      }
+    }
+  }
+}

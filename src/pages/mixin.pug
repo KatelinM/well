@@ -1,0 +1,20 @@
+mixin link(link)
+    if link.link != null
+        a(class='tab-content__link', href=link.link, target='__blank') #{link.name}
+    else
+        span(class='tab-content__text') #{link.name}
+
+mixin linkList(links)
+    for link in links
+        +link({link: link.link, name: link.name})
+
+mixin tab(i, label, content, classTab)
+    .tab(class=classTab)
+        input(id='chck'+i)(type='checkbox')
+        label.tab-label(for='chck'+i) #{label}
+        .tab-content
+            +linkList(content)
+mixin tabList(tabsArray)
+    .tabs
+    each tab, index  in tabsArray
+        +tab(index, tab.label, tab.content, 'listClassName')

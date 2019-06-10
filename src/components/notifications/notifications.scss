@@ -1,0 +1,25 @@
+.notifications__label{
+  color: #EDEEEE;
+  margin-bottom: 20px;
+  @media ($tablet) {
+    margin-bottom: 40px;
+  }
+  @media ($desktop) {
+     color: $darkGrey;
+  }
+}
+.note{
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 19px;
+  padding: 20px 35px 20px;
+  margin-bottom: 15px;
+  @media ($tablet) {
+    margin-bottom: 20px;
+  }
+  @media ($desktop) {
+    margin-bottom: 30px;
+  }
+  .note__time{
+    background-color: $lightGrey;
+  }
+}

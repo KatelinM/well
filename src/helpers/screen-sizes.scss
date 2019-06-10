@@ -1,0 +1,9 @@
+$mobile-landscape: "min-width: 480px"; // "S"
+$mobile-only: "max-width: 666px"; // "M"
+$tablet: "min-width: 720px"; // "M"
+$tablet-landscape: "min-width: 920px";
+$tabletOnly: (min-width: 720px) and (max-width: 1023px) ;
+$desktop: "min-width: 1024px"; // "L"
+$desktopMedium: "min-width: 1140px"; // "L"
+$desktopLarge: "min-width: 1296px"; // "XL"
+$lapTops: "min-width: 1360px";

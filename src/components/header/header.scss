@@ -1,0 +1,164 @@
+@import "../helpers/all";
+//пример верстки без использование flex
+.header {
+  width: 100%;
+  box-shadow: 0 2px 2px rgba(124, 171, 178, 0.2);
+  position: fixed;
+  top: 0;
+  background: white;
+  z-index: 20;
+  height: 90px;
+  @media ($desktop) {
+    transition: height 0.5s ease;
+  }
+  &_shrink {
+    @media ($desktop) {
+      height: 70px;
+    }
+  }
+  &__container {
+    @include container();
+    box-sizing: border-box;
+    position: relative;
+    height: 100%;
+    padding: 65px 20px 21px;
+  }
+  &__logo {
+    position: absolute;
+    margin: auto 0;
+    top: 0;
+    bottom: 0;
+    display: block;
+    font-size: 0;
+    width: 165px;
+    height: 48px;
+    background: url(../images/logo.svg) no-repeat center center;
+    background-size: contain;
+    color: white;
+    &:hover{
+      filter: invert(40%);
+    }
+
+    @media ($desktop) {
+      width: 220px;
+      height: 64px;
+    }
+  }
+  .top-navigation{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    right: 0;
+    @media ($desktop){
+      width: calc(100% - 220px - 2 * 40px);
+      top: 50%;
+      margin-top: -14px;
+    }
+    &__container{
+      display: block;
+      background: #FFFFFF;
+      position: absolute;
+      width: calc(100% + 2 * 20px);
+      left: -20px;
+      top: 72px;
+      height: 0;
+      box-sizing: border-box;
+      box-shadow: 0 2px 2px rgba(124, 171, 178, 0.2);
+      transition: height 0.5s ease;
+      overflow-y: hidden;
+      padding: 0;
+      @media ($desktop) {
+        height: 100%;
+        position: static;
+        width: auto;
+        box-shadow: none;
+      }
+    }
+    &_open .top-navigation__container{
+      height: 270px;
+      padding: 5px 20px 40px;
+    }
+    &__trigger {
+      position: absolute;
+      display: block;
+      width: 30px;
+      height: 21px;
+      right: 0;
+      top: 15px;
+      background: url(../images/navtrigger.svg) no-repeat center center;
+      background-size: 30px 17px;
+      padding: 30px;
+      transition: all 0.4s;
+      &:hover{
+        cursor: pointer;
+        filter: brightness(87%);
+      }
+      @media ($desktop) {
+        display: none;
+      }
+    }
+    &_open .top-navigation__trigger {
+      background: url(../images/close.svg) no-repeat center center;
+      transition: all 0.7s;
+      &:hover{
+        cursor: pointer;
+        transform: rotate(360deg);
+      }
+    }
+
+    &__item{
+      text-align: center;
+      @media ($desktop){
+        display: inline-block;
+        line-height: 38px;
+      }
+    }
+    &__link{
+      color: $yellow;
+      padding: 15px 0;
+      @media ($desktop){
+        padding: 0 10px;
+        margin-right: 44px;
+      }
+      &:hover{
+        color: $yellowHover;
+      }
+    }
+  }
+  &__phone{
+    font-weight: bold;
+    font-size: 24px;
+    color: $darkGrey;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    margin-right: 40px;
+    &_icon{
+      margin-left: 10px;
+      &:hover{
+
+      }
+    }
+    &:hover{
+      filter: invert(10%);
+    }
+    @media ($desktop){
+      display: inline-block;
+      margin-top: 0;
+      float: right;
+      padding: 0;
+    }
+  }
+}
+
+.header + .hero {
+  margin-top: 90px;
+  transition: margin-top 0.5s ease;
+}
+
+.header_shrink + .hero {
+  @media ($desktop) {
+    margin-top: 70px;
+  }
+}
+

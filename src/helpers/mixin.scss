@@ -1,0 +1,16 @@
+@import "./colors";
+@import "./screen-sizes";
+@import "./variables";
+
+
+@mixin container(){
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $mobileSideSpace;
+  box-sizing: border-box;
+  @media ($desktop){
+  max-width: $contentWidth + 2 * $desktopSideSpace;
+  padding: 0 $desktopSideSpace;
+}
+}
+

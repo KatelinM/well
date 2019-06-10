@@ -1,0 +1,53 @@
+@import "../../helpers/all";
+.section {
+  box-sizing: border-box;
+  &__container {
+    width: 100%;
+    padding: 20px 12px;
+  }
+  @media ($desktopLarge){
+    &__container {
+      @include container();
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+  &_hero {
+    background-image: url("../images/bg-hero.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: cover;
+    height: 230px;
+  }
+  &_main {
+    .section__container{
+      @media ($desktop) {
+        display: flex;
+        padding: 30px 40px 40px;
+      }
+    }
+  }
+  &_info {
+    background-image: url("../images/bg-hero.png");
+    height: 230px;
+  }
+  &_news{
+    background-color: #EDEEEE;
+  }
+  &_footer {
+    padding-top: 30px;
+    & .section__container{
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      @media ($tablet){
+        flex-direction: row;
+        justify-content: space-between;
+        padding-right: 40px;
+        padding: 40px 40px  0;
+      }
+    }
+  }
+}
+
+

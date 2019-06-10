@@ -1,0 +1,157 @@
+$bgColor: white;
+$color: black;
+$colorLabel: black;
+$border:1px solid red;
+$borderRadius:1px solid red;
+
+// General
+
+input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+/* Accordion styles */
+.tabs {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -2px rgba(0,0,0,0.5);
+}
+.tab {
+  width: 100%;
+  color: $colorLabel;
+  overflow: hidden;
+  border-top: 1px solid rgba(0,0,0,.2);
+
+  &-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 13px;
+    background: $bgColor;
+    font-weight: bold;
+    cursor: pointer;
+    /* Icon */
+
+    &::after {
+      content: "";
+      background-image: url("../images/arrow_footer.svg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 16px;
+      height: 8px;
+      text-align: center;
+      transition: all .35s;
+    }
+  }
+  &-content {
+    max-height: 0;
+    padding: 0 20px;
+    color: $color;
+    background: white;
+    transition: all .35s;
+
+  }
+  &.tab_menu{
+    border-top: none;
+    padding-top: 9px;
+    @media ($desktop) {
+      display: flex;
+      flex-direction: column
+    }
+    .tab-label{
+      border: 1px solid rgba(0,0,0,.2);
+      border-radius: 20px;
+      color: $darkGrey;
+      position: relative;
+      &:after{
+        @media ($desktop) {
+          display: none;
+        }
+      }
+      &:before{
+        content: '5';
+        color: #fff;
+        font-weight: 700;
+        font-size: .8125rem;
+        line-height: .9375rem;
+        position: absolute;
+        top: -10px;
+        right: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #FFC000;
+        border-radius: 50%;
+        padding: 8px;
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+    .tab-content {
+      @media ($desktop) {
+        max-height: 100vh;
+        order: -1;
+        padding: 0;
+      }
+      &__link {
+        color: $darkGrey;
+        border: 1px solid $lightGrey;
+        border-top: none;
+        padding: 10px 20px;
+        @media ($desktop) {
+          color: $yellow;
+          border: none;
+          border-top: none;
+          padding-left: 0;
+          &:hover{
+            color: $yellowHover;
+          }
+        }
+      }
+    }
+  }
+  &.tab_note{
+    border-top: none;
+    .tab-content__text{
+      color: $lightGrey;
+    }
+  }
+  &.tab_black-arrow{
+
+      @media ($tablet){
+        border-top: none;
+        flex-basis: calc(50% - 15px);
+        .tab-content {
+          max-height: 100vh;
+        }
+        .tab-label::after{
+          display: none;
+        }
+      }
+
+
+  }
+}
+
+// :checked
+input:checked {
+  + .tab-label {
+    //background: darken($bgColor, 10%);
+    &::after {
+      transform: rotate(180deg);
+    }
+  }
+  ~ .tab-content {
+    max-height: 100vh;
+    padding-top: 0;
+  }
+}
+.tab-content__link{
+  color: $yellow;
+  font-weight: normal;
+  padding: 10px 0;
+  &:hover{
+    color: $yellowHover;
+  }
+}

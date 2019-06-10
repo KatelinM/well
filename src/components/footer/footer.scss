@@ -1,0 +1,55 @@
+.footer{
+  .contacts {
+    &__phone{
+      padding: 15px 13px 10px;
+      color: $darkGrey;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 24px;
+    }
+    &__adress{
+      padding: 20px 13px;
+    }
+    &__mail{
+      padding: 10px 13px 15px;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 16px;
+      color: $yellow;
+      &:hover{
+        color: $yellowHover;
+      }
+    }
+     &__icons {
+      display: flex;
+      justify-content: space-between;
+       .contacts__link:hover{
+         transform: scale(1.1);
+       }
+       .contacts__link:hover path{
+         fill: $yellowHover;
+       }
+    }
+    &__link {
+      padding: 20px 13px;
+    }
+    @media ($tablet){
+      flex: 1;
+      margin-right: 88px;
+    }
+    @media ($desktop) {
+      margin-right: 215px;
+    }
+  }
+  .footer__nav {
+    @media ($tablet) {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    @media ($desktop) {
+      flex-wrap: nowrap;
+      flex: 1;
+    }
+  }
+}
