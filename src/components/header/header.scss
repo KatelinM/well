@@ -40,7 +40,7 @@
     }
 
     @media ($desktop) {
-      width: 220px;
+      width: 176px;
       height: 64px;
     }
   }
@@ -50,7 +50,7 @@
     width: 100%;
     right: 0;
     @media ($desktop){
-      width: calc(100% - 220px - 2 * 40px);
+      width: calc(100% - 176px - 2 * 40px);
       top: 50%;
       margin-top: -14px;
     }
